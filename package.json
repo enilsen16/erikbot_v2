@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "twitch-irc": "^1.1.0"
+    "twitch-irc": "1.1.0",
+    "dotenv": "0.4.0"
   }
 }
