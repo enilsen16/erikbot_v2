@@ -2,7 +2,6 @@ var expect = require('chai').expect;
 var image = require('../lib/image');
 
 describe('image', function() {
-  this.timeout(100000);
   it('is a valid gif', function(done) {
     image.giphy("whassup", function(url) {
       expect(url).to.contain('http:');
