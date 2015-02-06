@@ -1,1 +1,1 @@
-web:  node lib/commands.js
+bot:  node lib/commands.js
