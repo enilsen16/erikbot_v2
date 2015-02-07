@@ -1,1 +1,1 @@
-bot:  node lib/commands.js
+worker: node lib/commands.js
