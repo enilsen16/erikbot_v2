@@ -2,7 +2,7 @@
   "name": "erikbot_v2",
   "version": "0.0.0",
   "description": "A IRC bot",
-  "main": "lib/commands.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha test/*test.js"
   },

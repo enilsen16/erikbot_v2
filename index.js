@@ -1,5 +1,5 @@
 var irc = require('twitch-irc');
-var image = require('./image');
+var image = require('./lib/image');
 var dotenv = require('dotenv');
 dotenv.load(); // For enviroment variables
 
