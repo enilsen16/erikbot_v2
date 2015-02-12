@@ -37,7 +37,8 @@ client.addListener('chat', function (channel, user, message) {
       client.say(channel, url);
     });
   }
-  if(client.utils.symbols(message) > 0) {
+  if((client.utils.symbols(message) > 0) && (user.special.length <= 0 || user.special.contains('turbo'))) {
     client.timeout(channel, user.username, 5);
+    client.say(channel, 'Hey '+user.username+"! Please don't spam");
   }
 });
