@@ -1,5 +1,6 @@
 var irc = require('twitch-irc');
 var image = require('./lib/image');
+var protection = require('./lib/protection');
 var dotenv = require('dotenv');
 dotenv.load(); // For enviroment variables
 
@@ -8,7 +9,8 @@ var client = new irc.client({
   options: {
     debug: true,
     debugDetails: true,
-    logging: true,
+    debugIgnore: ['ping', 'chat'],
+    logging: false,
     chat: true,
     tc: 3
   },
@@ -16,7 +18,7 @@ var client = new irc.client({
     username: process.env.USERNAME,
     password: process.env.OATH_TOKEN,
   },
-  channels: [process.env.CHANNELS]
+  channels: [process.env.CHANNELS],
 });
 
 // Connect the client to server..
@@ -35,6 +37,7 @@ client.addListener('chat', function (channel, user, message) {
       client.say(channel, url);
     });
   }
+  if(client.utils.symbols(message) > 0) {
+    client.timeout(channel, user.username, 5);
+  }
 });
-
-module.exports = client;
