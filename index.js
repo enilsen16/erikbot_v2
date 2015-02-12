@@ -41,4 +41,9 @@ client.addListener('chat', function (channel, user, message) {
     client.timeout(channel, user.username, 5);
     client.say(channel, 'Hey '+user.username+"! Please don't spam");
   }
+  if(message.indexOf('!rules') === 0) {
+    client.say(channel, "1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.");
+    client.say(channel, "2. A robot must obey any orders given to it by human beings, except where such orders would conflict with the First Law.");
+    client.say(channel, "3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.");
+  }
 });
