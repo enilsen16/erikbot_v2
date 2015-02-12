@@ -4,7 +4,6 @@ var protection = require('./lib/protection');
 var dotenv = require('dotenv');
 dotenv.load(); // For enviroment variables
 
-// Calling a new client..
 var client = new irc.client({
   options: {
     debug: true,
@@ -21,15 +20,11 @@ var client = new irc.client({
   channels: [process.env.CHANNELS],
 });
 
-// Connect the client to server..
 client.connect();
 
 // Your events..
 client.addListener('chat', function (channel, user, message) {
-  // If the message starts with !hello..
   if (message.indexOf('!hello') === 0) {
-    // Say something
-    // https://github.com/Schmoopiie/twitch-irc/wiki/Command:-Say
     client.say(channel, 'Hey '+user.username+'! How you doing? Kappa');
   }
   if (message.slice(0,4).indexOf('!gif') === 0) {
@@ -47,3 +42,5 @@ client.addListener('chat', function (channel, user, message) {
     client.say(channel, "3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.");
   }
 });
+
+module.exports = client;
