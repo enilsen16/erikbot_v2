@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "dotenv": "0.4.0",
-    "twitch-irc": "^1.1.14"
+    "twitch-irc": "^1.1.14",
+    "moment": "*"
   },
   "devDependencies": {
     "chai": "*",
