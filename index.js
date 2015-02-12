@@ -50,6 +50,9 @@ client.addListener('chat', function (channel, user, message) {
     var uptime = timeB.diff(timeA, 'minutes');
     client.say(channel, "I have been running for about " +  uptime + " minutes");
   }
+  if(message.indexOf('!kappa') === 0 && user.username === 'eyeswl') {
+    client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");
+  }
 });
 
 module.exports = client;
