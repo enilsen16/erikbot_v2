@@ -50,7 +50,7 @@ client.addListener('chat', function (channel, user, message) {
     var uptime = timeB.diff(timeA, 'minutes');
     client.say(channel, "I have been running for about " +  uptime + " minutes");
   }
-  if(message.indexOf('!kappa') === 0 && user.username === 'eyeswl') {
+  if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.contains('broadcaster'))) {
     client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");
   }
 });
