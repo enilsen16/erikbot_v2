@@ -32,7 +32,7 @@ client.addListener('chat', function (channel, user, message) {
       client.say(channel, url);
     });
   }
-  if((client.utils.symbols(message) > 0) && (user.special.length === 0 || user.special.contains('turbo'))) {
+  if((client.utils.symbols(message) > 0) && (user.special.length === 0 || user.special.includes('turbo'))) {
     client.timeout(channel, user.username, 5);
     client.say(channel, 'Hey '+user.username+"! Please don't spam");
   }
@@ -41,7 +41,7 @@ client.addListener('chat', function (channel, user, message) {
     client.say(channel, "2. A robot must obey any orders given to it by human beings, except where such orders would conflict with the First Law.");
     client.say(channel, "3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.");
   }
-  if(message.length >= 250 && (user.special.length === 0 || user.special.contains('turbo'))) {
+  if(message.length >= 250 && (user.special.length === 0 || user.special.includes('turbo'))) {
     client.timeout(channel, user.username, 5);
     client.say(channel, user.username + " that message is way too long");
   }
@@ -50,7 +50,7 @@ client.addListener('chat', function (channel, user, message) {
     var uptime = timeB.diff(timeA, 'minutes');
     client.say(channel, "I have been running for about " +  uptime + " minutes");
   }
-  if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.contains('broadcaster'))) {
+  if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.includes(['broadcaster', 'admin', 'mod']))) {
     client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");
   }
 });
