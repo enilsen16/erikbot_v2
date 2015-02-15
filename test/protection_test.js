@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var protection = require('../lib/protection');
+var actual = require('../lib/protection');
 
 describe('spam protection', function() {
   it('array.contain functions correctly', function() {
@@ -15,5 +15,12 @@ describe('spam protection', function() {
     expect([1,2].contains([2,1])).to.eql(true);
     expect([1,2,3].contains([2,1])).to.eql(true);
     expect([1,2].contains([2,1,3])).to.eql(false);
+  });
+
+  it('loops correctly', function() {
+    var a = '';
+    (5).times(function(i) { a += i; });
+    expect(a).to.eql('01234');
+    expect(a).to.not.eql('12345');
   });
 });
