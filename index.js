@@ -22,8 +22,9 @@ var client = new irc.client({
 });
 
 client.connect();
-var timeA = moment();
+
 client.addListener('chat', function (channel, user, message) {
+  var timeA = moment();
   if (message.indexOf('!hello') === 0) {
     client.say(channel, 'Hey '+user.username+'! How you doing? Kappa');
   }
@@ -51,7 +52,7 @@ client.addListener('chat', function (channel, user, message) {
     client.say(channel, "I have been running for about " +  uptime + " minutes");
   }
   if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.includes(['broadcaster', 'admin', 'mod']))) {
-    client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");
+    (10).times(function (i) {client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");});
   }
 });
 
