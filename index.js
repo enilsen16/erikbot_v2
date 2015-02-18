@@ -54,6 +54,10 @@ client.addListener('chat', function (channel, user, message) {
   if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.includes(['broadcaster', 'admin', 'mod']))) {
     (10).times(function (i) {client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");});
   }
+  if(message.indexOf('!join') === 0) {
+    client.join(user.username);
+    client.say(channel, "I have sucessfully joined " + user.username + "'s channel.");
+  }
 });
 
 module.exports = client;
