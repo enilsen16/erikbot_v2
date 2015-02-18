@@ -11,9 +11,9 @@
     "url": "git://github.com/enilsen16/erikbot_v2.git"
   },
   "dependencies": {
-    "dotenv": "0.4.0",
+    "dotenv": "^0.4.0",
     "moment": "*",
-    "twitch-irc": "^1.1.14"
+    "twitch-irc": "file:node_modules/twitch-irc"
   },
   "devDependencies": {
     "chai": "*",
