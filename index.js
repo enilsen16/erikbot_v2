@@ -54,12 +54,20 @@ client.addListener('chat', function (channel, user, message) {
   if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.includes(['broadcaster', 'admin', 'mod']))) {
     (10).times(function (i) {client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");});
   }
-  if(message.indexOf('!join') === 0) {
+  if(message.indexOf('!join') === 0 )  {
     if((client.options.channels).includes([user.username])) {
       client.say(channel, "Hey " + user.username + ", I am already connected to your channel");
     } else {
       client.join(user.username);
       client.say(channel, "I have successfully joined " + user.username + "'s channel.");
+    }
+  }
+  if(message.indexOf('!leave') === 0) {
+    if((client.options.channels).includes([user.username])) {
+      client.leave(user.username);
+      client.say(channel, client.options.identity.username + " has left your channel. :(");
+    } else {
+      client.say(channel, client.options.identity.username + "is not in your channel. I need to join first");
     }
   }
 });
