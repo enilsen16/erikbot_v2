@@ -55,8 +55,12 @@ client.addListener('chat', function (channel, user, message) {
     (10).times(function (i) {client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");});
   }
   if(message.indexOf('!join') === 0) {
-    client.join(user.username);
-    client.say(channel, "I have successfully joined " + user.username + "'s channel.");
+    if((client.options.channels).includes([user.username])) {
+      client.say(channel, "Hey " + user.username + ", I am already connected to your channel");
+    } else {
+      client.join(user.username);
+      client.say(channel, "I have successfully joined " + user.username + "'s channel.");
+    }
   }
 });
 module.exports = client;
