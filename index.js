@@ -46,7 +46,7 @@ client.addListener('chat', function (channel, user, message) {
     client.timeout(channel, user.username, 5);
     client.say(channel, user.username + " that message is way too long");
   }
-  if(message.indexOf('!uptime') === 0) {
+  if(message.indexOf('!uptime') === 0 && user.username === 'eyeswl') {
     var timeB = moment();
     var uptime = timeB.diff(timeA, 'minutes');
     client.say(channel, "I have been running for about " +  uptime + " minutes");
@@ -54,7 +54,7 @@ client.addListener('chat', function (channel, user, message) {
   if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.includes(['broadcaster', 'admin', 'mod']))) {
     (10).times(function (i) {client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");});
   }
-  if(message.indexOf('!join') === 0 )  {
+  if(message.indexOf('!join') === 0 && client.options.channels.length <= 5)  {
     if((client.options.channels).includes([user.username])) {
       client.say(channel, "Hey " + user.username + ", I am already connected to your channel");
     } else {
