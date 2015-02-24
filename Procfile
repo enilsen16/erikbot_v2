@@ -1,1 +1,1 @@
-bot: node lib/commands.js
+bot: node index.js
