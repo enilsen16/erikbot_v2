@@ -1,8 +1,9 @@
-var irc = require('twitch-irc');
-var image = require('./lib/image');
-var protection = require('./lib/protection');
 var dotenv = require('dotenv');
+var http = require('http');
+var image = require('./lib/image');
+var irc = require('twitch-irc');
 var moment = require('moment');
+var protection = require('./lib/protection');
 dotenv.load(); // For enviroment variables
 
 var client = new irc.client({
@@ -71,4 +72,18 @@ client.addListener('chat', function (channel, user, message) {
     }
   }
 });
-module.exports = client;
+
+
+//For Heroku, I guess
+var port, server;
+
+server = http.createServer(function(req, res) {
+  res.writeHead(200, {
+    'Content-Type': 'text/plain'
+  });
+  return res.end('Hello, World!\n');
+});
+
+port = process.env.PORT || 3000;
+
+server.listen(port);
