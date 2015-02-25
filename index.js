@@ -1,5 +1,4 @@
 var dotenv = require('dotenv');
-var http = require('http');
 var image = require('./lib/image');
 var irc = require('twitch-irc');
 var moment = require('moment');
@@ -10,7 +9,7 @@ var client = new irc.client({
   options: {
     debug: true,
     debugDetails: true,
-    debugIgnore: ['ping', 'chat'],
+    debugIgnore: [ "ping", "chat"],
     logging: false,
     chat: true,
     tc: 3
@@ -55,8 +54,8 @@ client.addListener('chat', function (channel, user, message) {
   if(message.indexOf('!kappa') === 0 && (user.username === 'eyeswl' || user.special.includes(['broadcaster', 'admin', 'mod']))) {
     (10).times(function (i) {client.say(channel, "Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa Kappa");});
   }
-  if(message.indexOf('!join') === 0 && client.options.channels.length <= 5)  {
-    if((client.options.channels).includes([user.username])) {
+  if(message.indexOf('!join') === 0 && client.Channels.length <= 5)  {
+    if((client.Channels).includes([user.username])) {
       client.say(channel, "Hey " + user.username + ", I am already connected to your channel");
     } else {
       client.join(user.username);
@@ -64,11 +63,11 @@ client.addListener('chat', function (channel, user, message) {
     }
   }
   if(message.indexOf('!leave') === 0) {
-    if((client.options.channels).includes([user.username])) {
+    if((client.Channels).includes([user.username])) {
       client.leave(user.username);
-      client.say(channel, client.options.identity.username + " has left your channel. :(");
+      client.say(channel, client.myself + " has left your channel. :(");
     } else {
-      client.say(channel, client.options.identity.username + "is not in your channel. I need to join first");
+      client.say(channel, client.myself + " is not in your channel. I need to join first");
     }
   }
 });
