@@ -13,7 +13,7 @@
   "dependencies": {
     "dotenv": "^0.4.0",
     "moment": "*",
-    "twitch-irc": "^1.1.21"
+    "twitch-irc": "^1.2.0-1"
   },
   "devDependencies": {
     "chai": "*",
