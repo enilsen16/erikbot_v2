@@ -3,7 +3,7 @@ var image = require('./lib/image');
 var irc = require('twitch-irc');
 var moment = require('moment');
 var protection = require('./lib/protection');
-dotenv.load(); // For enviroment variables
+dotenv.load(); // For environment variables
 
 var client = new irc.client({
   options: {
