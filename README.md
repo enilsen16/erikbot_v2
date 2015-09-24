@@ -1,4 +1,4 @@
-# Pretty sure the bot is depricated as of now. It needs to be updated to the new twitch client and I don't really use twitch anymore.
+### Pretty sure the bot is depricated as of now. It needs to be updated to the new twitch client and I don't really use twitch anymore.
 
 # erikbot_v2
 [![Build Status](https://travis-ci.org/enilsen16/erikbot_v2.svg?branch=master)](https://travis-ci.org/enilsen16/erikbot_v2)
